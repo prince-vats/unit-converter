@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gas Concentration Converter</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Atmospheric Gas Concentration Converter</h1>
+
+  <p class="subtitle">
+    Convert between ppm, ppb, µg/m³, and mg/m³ with temperature and pressure correction.
+  </p>
+
+  <!-- Gas Selection -->
+  <div class="card">
+
+    <label>Gas</label>
+
+    <select id="gasSelect">
+      <option value="44.01">CO₂</option>
+      <option value="28.01">CO</option>
+      <option value="46.01">NO₂</option>
+      <option value="64.07">SO₂</option>
+      <option value="48.00">O₃</option>
+      <option value="17.03">NH₃</option>
+      <option value="16.04">CH₄</option>
+      <option value="34.08">H₂S</option>
+      <option value="78.11">Benzene</option>
+      <option value="custom">Custom Molecular Weight</option>
+    </select>
+
+    <div id="customMWContainer" style="display:none;">
+      <label>Molecular Weight (g/mol)</label>
+      <input type="number" id="customMW" placeholder="Enter molecular weight">
+    </div>
+
+  </div>
+
+  <!-- Conversion -->
+  <div class="card">
+
+    <div class="grid">
+
+      <div>
+        <label>Input Value</label>
+        <input type="number" id="inputValue" placeholder="Enter value">
+      </div>
+
+      <div>
+        <label>From Unit</label>
+        <select id="fromUnit">
+          <option>ppm</option>
+          <option>ppb</option>
+          <option>µg/m³</option>
+          <option>mg/m³</option>
+        </select>
+      </div>
+
+      <div>
+        <label>To Unit</label>
+        <select id="toUnit">
+          <option>µg/m³</option>
+          <option>mg/m³</option>
+          <option>ppm</option>
+          <option>ppb</option>
+        </select>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Environmental Conditions -->
+  <div class="card">
+
+    <h2>Environmental Conditions</h2>
+
+    <div class="grid">
+
+      <div>
+        <label>Temperature (°C)</label>
+        <input type="number" id="temperature" value="25">
+      </div>
+
+      <div>
+        <label>Pressure (atm)</label>
+        <input type="number" id="pressure" value="1">
+      </div>
+
+    </div>
+
+    <div class="preset-buttons">
+      <button onclick="setSTP()">STP</button>
+      <button onclick="setNTP()">NTP</button>
+    </div>
+
+  </div>
+
+  <!-- Convert Button -->
+  <button class="convert-btn" onclick="convertUnits()">
+    Convert
+  </button>
+
+  <!-- Output -->
+  <div class="result-card">
+
+    <h2>Result</h2>
+
+    <div id="result">
+      --
+    </div>
+
+  </div>
+
+  <!-- Equation -->
+  <div class="card equation">
+
+    <h2>Equation Used</h2>
+
+    <p>
+      $$ C_{\mu g/m^3} = \frac{ppm \times MW \times P \times 1000}{R \times T} $$
+    </p>
+
+    <p>
+      where:
+    </p>
+
+    <ul>
+      <li><b>MW</b> = molecular weight (g/mol)</li>
+      <li><b>P</b> = pressure (atm)</li>
+      <li><b>T</b> = temperature (K)</li>
+      <li><b>R</b> = 0.082057 L·atm/mol·K</li>
+    </ul>
+
+  </div>
+
+  <!-- Assumptions -->
+  <div class="card">
+
+    <h2>Assumptions & Notes</h2>
+
+    <ul>
+      <li>Uses ideal gas law.</li>
+      <li>Temperature and pressure significantly affect conversion.</li>
+      <li>Conversion factors at STP/NTP differ.</li>
+      <li>Applicable for gases, not particulate matter.</li>
+    </ul>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
