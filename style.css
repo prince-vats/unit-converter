@@ -35,8 +35,8 @@ body{
   padding:14px 24px;
   text-align:center;
   text-decoration:none;
-  color:white;
-  background:#FF4500;
+  color:rgb(0, 0, 0);
+  background:#ffffff;
   border-radius:14px;
   font-weight:600;
   transition:0.3s;
@@ -48,6 +48,7 @@ body{
 
   background:#E63F00;
   transform:translateY(-2px);
+  color: white;
 
 }
 
