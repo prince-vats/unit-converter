@@ -45,43 +45,37 @@ body {
   flex-direction: column;
 }
 
-/* ── NAVBAR ───────────────────────────────────── */
+/* ── NAVBAR ────────────────────────────────────────────── */
 .navbar {
-  flex-shrink: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 9px 28px;
-  border-bottom: 1px solid var(--border);
-  background: rgba(0,0,0,0.9);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  padding: 14px 32px;
+  border-bottom: 1px solid #222222;
+  background: rgba(0,0,0,0.95);
+  position: sticky;
+  top: 0;
   z-index: 100;
+  backdrop-filter: blur(12px);
 }
 
-.nav-logo {
-  height: 26px;
-  width: auto;
-  display: block;
-  transition: filter var(--transition);
-}
+.nav-logo { height: 36px; width: auto; display: block; }
 
 .nav-btn {
-  padding: 6px 16px;
-  background: var(--accent);
+  padding: 9px 20px;
+  background: #FF4500;
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 12px;
-  border-radius: 7px;
-  letter-spacing: 0.03em;
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 2px 14px rgba(255,69,0,0.25);
+  font-size: 13px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 .nav-btn:hover {
-  background: #e03e00;
+  background: #cc3700;
   transform: translateY(-1px);
-  box-shadow: 0 5px 22px rgba(255,69,0,0.4);
+  box-shadow: 0 4px 20px rgba(255,69,0,0.35);
 }
 
 /* ── MAIN WRAPPER — fills remaining height ────── */
