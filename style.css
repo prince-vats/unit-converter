@@ -63,10 +63,8 @@ body {
   height: 26px;
   width: auto;
   display: block;
-  filter: drop-shadow(0 0 6px rgba(255,69,0,0.4));
   transition: filter var(--transition);
 }
-.nav-logo:hover { filter: drop-shadow(0 0 12px rgba(255,69,0,0.7)); }
 
 .nav-btn {
   padding: 6px 16px;
