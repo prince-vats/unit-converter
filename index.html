@@ -7,12 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Atmospheric Gas Unit Converter</title>
+  <meta name="description" content="Professional scientific unit conversion toolkit for atmospheric gases, air pollution, and aerosol research. Convert ppm, ppb, µg/m³, mol/m³ and more.">
 
   <link rel="icon" type="image/png" href="PV.png" />
 
   <link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
@@ -29,38 +30,36 @@
 
   <div class="container">
 
+    <!-- HERO -->
     <div class="hero">
-
-      <h2 style="color: #FF4500">Atmospheric Gas Unit Converter</h2>
-
+      <h2>Atmospheric Gas Unit Converter</h2>
       <p>
         Professional scientific conversion toolkit for atmospheric gases,
         air pollution, and aerosol research.
       </p>
-
     </div>
 
     <!-- MAIN CARD -->
     <div class="card">
 
-      <!-- GAS -->
+      <!-- GAS SPECIES -->
       <div class="section">
 
-        <label>Gas Species</label>
+        <h2>Gas Species</h2>
 
         <select id="gas">
 
-          <option value="44.01">CO₂</option>
-          <option value="28.01">CO</option>
-          <option value="46.01">NO₂</option>
-          <option value="64.07">SO₂</option>
-          <option value="48.00">O₃</option>
-          <option value="17.03">NH₃</option>
-          <option value="16.04">CH₄</option>
-          <option value="34.08">H₂S</option>
+          <option value="44.01">CO₂ — Carbon Dioxide</option>
+          <option value="28.01">CO — Carbon Monoxide</option>
+          <option value="46.01">NO₂ — Nitrogen Dioxide</option>
+          <option value="64.07">SO₂ — Sulfur Dioxide</option>
+          <option value="48.00">O₃ — Ozone</option>
+          <option value="17.03">NH₃ — Ammonia</option>
+          <option value="16.04">CH₄ — Methane</option>
+          <option value="34.08">H₂S — Hydrogen Sulfide</option>
           <option value="78.11">Benzene</option>
-          <option value="30.03">Formaldehyde</option>
-          <option value="78.95">CS₂</option>
+          <option value="30.03">Formaldehyde (HCHO)</option>
+          <option value="78.95">CS₂ — Carbon Disulfide</option>
           <option value="92.14">Toluene</option>
           <option value="106.17">Xylene</option>
           <option value="98.08">H₂SO₄ Vapor</option>
@@ -72,76 +71,71 @@
 
           <label>Molecular Weight (g/mol)</label>
 
-          <input type="number" id="customMW">
+          <input type="number" id="customMW" placeholder="e.g. 44.01">
 
         </div>
 
       </div>
 
-      <!-- VALUE -->
-      <div class="grid">
+      <!-- VALUE & UNITS -->
+      <div class="section">
 
-        <div>
+        <h2>Conversion</h2>
 
-          <label>Input Value</label>
+        <div class="grid">
 
-          <input type="number" id="inputValue">
+          <div>
+            <label>Input Value</label>
+            <input type="number" id="inputValue" placeholder="Enter value…">
+          </div>
 
-        </div>
+          <div>
+            <label>From Unit</label>
+            <select id="fromUnit">
 
-        <div>
+              <option>ppm</option>
+              <option>ppb</option>
+              <option>ppt</option>
+              <option>vol %</option>
 
-          <label>From</label>
+              <option>µg/m³</option>
+              <option>mg/m³</option>
+              <option>g/m³</option>
+              <option>ng/m³</option>
 
-          <select id="fromUnit">
+              <option>mol/m³</option>
+              <option>mmol/m³</option>
 
-            <option>ppm</option>
-            <option>ppb</option>
-            <option>ppt</option>
-            <option>vol %</option>
+              <option>molecules/cm³</option>
 
-            <option>µg/m³</option>
-            <option>mg/m³</option>
-            <option>g/m³</option>
-            <option>ng/m³</option>
+            </select>
+          </div>
 
-            <option>mol/m³</option>
-            <option>mmol/m³</option>
+          <div class="swap-container">
+            <button id="swapBtn" title="Swap units">⇄</button>
+          </div>
 
-            <option>molecules/cm³</option>
+          <div>
+            <label>To Unit</label>
+            <select id="toUnit">
 
-          </select>
+              <option>µg/m³</option>
+              <option>mg/m³</option>
+              <option>g/m³</option>
+              <option>ng/m³</option>
 
-        </div>
+              <option>ppm</option>
+              <option>ppb</option>
+              <option>ppt</option>
+              <option>vol %</option>
 
-        <div class="swap-container">
+              <option>mol/m³</option>
+              <option>mmol/m³</option>
 
-          <button id="swapBtn">⇄</button>
+              <option>molecules/cm³</option>
 
-        </div>
-
-        <div>
-
-          <label>To</label>
-
-          <select id="toUnit">
-
-            <option>µg/m³</option>
-            <option>mg/m³</option>
-            <option>g/m³</option>
-            <option>ng/m³</option>
-
-            <option>ppm</option>
-            <option>ppb</option>
-            <option>ppt</option>
-            <option>vol %</option>
-
-            <option>mol/m³</option>
-            <option>mmol/m³</option>
-
-            <option>molecules/cm³</option>
-
-          </select>
+            </select>
+          </div>
 
         </div>
 
@@ -155,50 +149,34 @@
         <div class="grid">
 
           <div>
-
             <label>Temperature</label>
-
-            <input type="number" id="temp" value="25">
-
+            <input type="number" id="temp" value="25" placeholder="25">
           </div>
 
           <div>
-
             <label>Temp Unit</label>
-
             <select id="tempUnit">
-
               <option>°C</option>
               <option>K</option>
               <option>°F</option>
-
             </select>
-
           </div>
 
           <div>
-
             <label>Pressure</label>
-
-            <input type="number" id="pressure" value="1">
-
+            <input type="number" id="pressure" value="1" placeholder="1">
           </div>
 
           <div>
-
             <label>Pressure Unit</label>
-
             <select id="pressureUnit">
-
               <option>atm</option>
               <option>Pa</option>
               <option>hPa</option>
               <option>kPa</option>
               <option>bar</option>
               <option>mmHg</option>
-
             </select>
-
           </div>
 
         </div>
@@ -207,18 +185,14 @@
 
       <!-- PRESETS -->
       <div class="preset-row">
-
         <button onclick="setSTP()">STP</button>
         <button onclick="setNTP()">NTP</button>
         <button onclick="setAmbient()">Ambient</button>
-
       </div>
 
       <!-- CONVERT -->
       <button class="convert-btn" onclick="convert()">
-
         Convert
-
       </button>
 
     </div>
@@ -228,23 +202,16 @@
 
       <h2>Result</h2>
 
-      <div id="result">
-
-        --
-
-      </div>
+      <div id="result">--</div>
 
       <button id="copyBtn">
-
         Copy Result
-
       </button>
 
     </div>
 
     <!-- INFO -->
     <div class="info-card">
-
 
       <h2>Equation Used</h2>
 
@@ -256,9 +223,7 @@
         $$
       </div>
 
-      <p>
-        where:
-      </p>
+      <p>where:</p>
 
       <ul>
         <li><b>MW</b> = molecular weight (g/mol)</li>
@@ -267,7 +232,7 @@
         <li><b>R</b> = 0.082057 L·atm/mol·K</li>
       </ul>
 
-      <h2>Assumptions & Notes</h2>
+      <h2>Assumptions &amp; Notes</h2>
 
       <ul>
         <li>Uses ideal gas law.</li>
